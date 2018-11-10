@@ -13,12 +13,13 @@ export class AppComponent {
 
   title = 'frontend';
   input = '5,3,2,1,4';
-  url = "http://localhost:8080/sort.json?input=1,2,3,4,6&sort_type=1&value_type=2";
+  Baseurl = "http://localhost:8080";
   result = "";
   sort() {
-    this.http.get(this.url)
+    this.http.get(this.Baseurl + "/sort.json?input=" + this.input + "&sort_type=1&value_type=2")
     .subscribe(data => {
-        var info : string = data['result'];
+        var info = data['result'];
+        console.log(info);
         this.result = info;
         
       },
